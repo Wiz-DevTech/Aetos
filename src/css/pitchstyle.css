@@ -1,0 +1,455 @@
+/* ========================================
+   PITCH DECK STYLES - ALIGNED WITH MAIN THEME
+   ======================================== */
+
+/* -------------------------------
+   BASE STYLES & GLOBAL SETTINGS
+   ------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--primary) 0%, #0f1419 100%);
+    color: var(--light);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* -------------------------------
+   SLIDESHOW CONTAINER
+   ------------------------------- */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    background-color: rgba(47, 79, 79, 0.9);
+}
+
+/* -------------------------------
+   SLIDE STYLES
+   ------------------------------- */
+.slide {
+    display: none;
+    padding: 40px;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(47, 79, 79, 0.95);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    display: flex;
+    opacity: 1;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23F5F5DC" stroke-width="0.1" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    z-index: -1;
+}
+
+/* -------------------------------
+   TYPOGRAPHY
+   ------------------------------- */
+.slide h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:  beige;
+    text-shadow: 0 0 35px rgba(184, 134, 11, 0.4);
+}
+
+.slide h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    text-shadow: 0 0 25px rgba(184, 134, 11, 0.3);
+    font-weight: 600;
+}
+
+.slide h3 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    color: var(--light);
+    font-weight: 600;
+}
+
+.slide p, 
+.slide li {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    max-width: 900px;
+    color: #e0e0e0;
+}
+
+.tagline {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #cccccc;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+}
+
+.highlight {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* -------------------------------
+   LISTS
+   ------------------------------- */
+.slide ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+    max-width: 700px;
+}
+
+.slide ul li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5em;
+}
+
+.slide ul li::before {
+    content: '➤';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-size: 1em;
+    top: 0;
+}
+
+/* -------------------------------
+   STATS GRID COMPONENT
+   ------------------------------- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin: 2.5rem 0;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.stat-card {
+    background: rgba(184, 134, 11, 0.08);
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    border-radius: 8px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(184, 134, 11, 0.15);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(184, 134, 11, 0.5);
+}
+
+.stat-card h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--accent);
+}
+
+.stat-card p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    color: #c0c0c0;
+}
+
+/* -------------------------------
+   REVENUE CHART COMPONENT
+   ------------------------------- */
+.revenue-chart {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 700px;
+    height: 250px;
+    margin: 3rem 0;
+    padding-bottom: 40px;
+    position: relative;
+}
+
+.revenue-bar {
+    width: 80px;
+    background: linear-gradient(to top, var(--accent), var(--primary));
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: relative;
+    box-shadow: 0 -5px 15px rgba(184, 134, 11, 0.3);
+    transition: height 0.5s ease-out;
+}
+
+.revenue-bar::before {
+    content: attr(data-value);
+    position: absolute;
+    top: -30px;
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.revenue-bar::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -30px;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+/* -------------------------------
+   COMPETITION TABLE COMPONENT
+   ------------------------------- */
+.competition-table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2.5rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.competition-table th,
+.competition-table td {
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.competition-table th {
+    background: rgba(184, 134, 11, 0.2);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.competition-table td {
+    background: rgba(47, 79, 79, 0.7);
+    color: #e0e0e0;
+}
+
+.competition-table tr:nth-child(even) td {
+    background: rgba(47, 79, 79, 0.85);
+}
+
+.checkmark {
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.cross {
+    color: #ff4444;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/* -------------------------------
+   ASK SECTION COMPONENT
+   ------------------------------- */
+.ask-section {
+    background: rgba(184, 134, 11, 0.12);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 3rem;
+    margin: 2.5rem 0;
+    max-width: 650px;
+    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.2);
+}
+
+.ask-section h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.ask-section ul {
+    text-align: center;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.ask-section ul li {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #f5e8c0;
+    text-shadow: 0 0 10px rgba(245, 232, 192, 0.2);
+    padding-left: 0;
+}
+
+.ask-section ul li::before {
+    content: none;
+}
+
+/* -------------------------------
+   TEAM GRID COMPONENT
+   ------------------------------- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2.5rem 0;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.team-card {
+    background: rgba(184, 134, 11, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: scale(1.03);
+}
+
+.team-card h3 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-size: 1.6rem;
+}
+
+.team-card p {
+    font-size: 1.1rem;
+    color: #c0c0c0;
+    margin-bottom: 0;
+}
+
+/* -------------------------------
+   DRONE ANIMATION
+   ------------------------------- */
+.drone-animation {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 4rem;
+    opacity: 0.3;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(184, 134, 11, 0.5));
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotateY(0deg); }
+    50% { transform: translateY(-15px) rotateY(15deg); }
+}
+
+/* -------------------------------
+   NAVIGATION CONTROLS
+   ------------------------------- */
+.navigation {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1.2rem;
+    z-index: 1000;
+}
+
+.nav-btn {
+    padding: 14px 28px;
+    background: rgba(184, 134, 11, 0.25);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.2);
+}
+
+.nav-btn:hover {
+    background: var(--accent);
+    color: var(--dark);
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(184, 134, 11, 0.4);
+}
+
+/* -------------------------------
+   SLIDE COUNTER
+   ------------------------------- */
+.slide-counter {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: rgba(184, 134, 11, 0.25);
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--light);
+    z-index: 1000;
+    border: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+/* -------------------------------
+   RESPONSIVE ADJUSTMENTS
+   ------------------------------- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.6rem; }
+    p, li { font-size: 1rem; }
+    .tagline { font-size: 1.3rem; }
+    .stat-number { font-size: 2.5rem; }
+    .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .revenue-chart { flex-direction: column; height: auto; align-items: center; }
+    .revenue-bar { width: 120px; margin-bottom: 40px; }
+    .revenue-bar::after { bottom: -20px; }
+    .competition-table th, .competition-table td { padding: 0.8rem 1rem; font-size: 0.9rem; }
+    .nav-btn { padding: 10px 20px; font-size: 0.9rem; }
+    .slide-counter { top: 15px; right: 15px; padding: 8px 15px; font-size: 0.9rem; }
+    .ask-section { padding: 2rem; }
+    .ask-section ul li { font-size: 1.1rem; }
+    .drone-animation { font-size: 3rem; top: 2%; right: 2%; }
+    .team-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}

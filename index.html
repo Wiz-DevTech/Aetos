@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aetos Drone Dynamics LLC | NDAA-Compliant Drone Training Facility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <!-- Secondary header with contact info -->
+    <div class="header-info">
+        <div class="container">
+            <div class="info-container">
+                <div class="info-left">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                        </svg>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                        </svg>
+                        <span>Austin, TX</span>
+                    </div>
+                </div>
+                <div class="info-right">
+                    <span>FAA Part 107 Certified Training Center</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22,16V4A2,2 0 0,0 20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H20A2,2 0 0,0 22,16M11.14,9.94L8.5,11.5L11.14,13.06L13.78,11.5L11.14,9.94M6.5,10.5L9.14,8.94L6.5,7.38L3.86,8.94L6.5,10.5M15.78,8.94L18.42,10.5L15.78,12.06L13.14,10.5L15.78,8.94Z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">Aetos</div>
+                    <div class="logo-sub">Drone Dynamics</div>
+                </div>
+            </a>
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="training.html">Training Programs</a></li>
+                    <li><a href="testing.html">Testing Services</a></li>
+                    <li><a href="cert.html">Certification</a></li>
+                    <li><a href="facilities.html" class="active">Facilities</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn">Schedule Training</a>
+            </nav>
+
+            <button class="mobile-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="src/image/backgroundvid.mp4" type="video/mp4">
+        </video>
+        <div class="container">
+            <h1>America's Premier NDAA-Compliant Drone Training Facility</h1>
+            <p>Train. Test. Certify. Dominate. Accelerating safe, effective drone deployment across defense, public safety, and commercial sectors.</p>
+            <div class="hero-buttons">
+                <a href="#training" class="hero-btn hero-btn-primary">View Training Programs</a>
+                <a href="#contact" class="hero-btn hero-btn-secondary">Request Facility Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Key Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Military/DoD Training</h3>
+                    <p>Pilot training for new recruits and NDAA-compliant operations for defense applications.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-ambulance"></i>
+                    <h3>Public Safety Certification</h3>
+                    <p>Police/Fire department programs with emergency response scenario training.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>Commercial Operator Training</h3>
+                    <p>FAA Part 107 certification and industry-specific applications training.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Manufacturer Testing</h3>
+                    <p>Prototype validation and performance analytics for drone manufacturers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Programs Section -->
+    <section id="training" class="training">
+        <div class="container">
+            <h2>Comprehensive Training Solutions</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('src/image/VrFliSim.jpg');"></div>
+                    <div class="program-content">
+                        <h3>VR Flight Simulation</h3>
+                        <p>Digital twin technology training for realistic flight scenarios in controlled environments.</p>
+                        <p><strong>Price:</strong> $500-$2,000 per person</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('src/image/live-training.jpg');"></div>
+                    <div class="program-content">
+                        <h3>Live Flight Exercises</h3>
+                        <p>Real-world obstacle courses and mission-specific training scenarios.</p>
+                        <p><strong>Price:</strong> $1,000-$3,000 per person</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('src/image/compliance-training.jpg');"></div>
+                    <div class="program-content">
+                        <h3>Regulatory Compliance</h3>
+                        <p>FAA and NDAA standards training for government and commercial operators.</p>
+                        <p><strong>Price:</strong> $750-$2,500 per person</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Features Section -->
+    <section id="facilities" class="features">
+        <div class="container">
+            <h2>State-of-the-Art Facilities</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-vr-cardboard"></i>
+                    <h3>Indoor VR Simulators</h3>
+                    <p>Advanced virtual reality systems for basic flight training and scenario simulation.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Outdoor Test Range</h3>
+                    <p>Mock urban environment for real-world training and testing applications.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Mobile Training Units</h3>
+                    <p>On-site agency training capabilities with our deployable systems.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Performance Analytics</h3>
+                    <p>Comprehensive trainee evaluation and performance tracking systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pitch Deck Section -->
+    <section class="pitch-deck">
+        <div class="container">
+            <h2>Partner With Us</h2>
+            <p>Aetos Drone Dynamics presents a unique opportunity in the rapidly growing drone training and testing market. With increasing demand for NDAA-compliant solutions and certified operators, we're positioned for significant growth.</p>
+            <div class="hero-buttons">
+                <a href="PtchDeck.html" class="hero-btn hero-btn-primary">Download Pitch Deck</a>
+                <a href="#contact" class="hero-btn hero-btn-secondary">Schedule Investor Meeting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Markets Section -->
+    <section class="markets">
+        <div class="container">
+            <h2>Target Markets</h2>
+            <div class="markets-grid">
+                <div class="market-card">
+                    <i class="fas fa-flag-usa"></i>
+                    <h3>Government Contracts</h3>
+                    <p>DoD, DHS, and other federal programs requiring compliant operators.</p>
+                </div>
+                <div class="market-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Law Enforcement</h3>
+                    <p>Police and fire academies needing certified drone operators.</p>
+                </div>
+                <div class="market-card">
+                    <i class="fas fa-tractor"></i>
+                    <h3>Commercial Sector</h3>
+                    <p>Agriculture, inspections, and delivery services requiring trained pilots.</p>
+                </div>
+                <div class="market-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Manufacturers</h3>
+                    <p>R&D partnerships for prototype testing and validation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-methods">
+                    <h3>Training Inquiries</h3>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <p>(555) 123-4567</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <p>training@aetosdrone.com</p>
+                    </div>
+                    
+                    <h3>Government Contracts</h3>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <p>contracts@aetosdrone.com</p>
+                    </div>
+                    
+                    <h3>Testing Services</h3>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <p>testing@aetosdrone.com</p>
+                    </div>
+                    
+                    <h3>Investor Relations</h3>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <p>investors@aetosdrone.com</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Request Information</h3>
+                    <form>
+                        <select name="inquiry-type" required>
+                            <option value="">Select Inquiry Type</option>
+                            <option value="training">Training Programs</option>
+                            <option value="testing">Testing Services</option>
+                            <option value="government">Government Contracts</option>
+                            <option value="investment">Investment Opportunities</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Aetos Drone Dynamics LLC</div>
+            <div class="footer-links">
+                <a href="#training">Training</a>
+                <a href="#testing">Testing</a>
+                <a href="cert.html">Certification</a>
+                <a href="#facilities">Facilities</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Aetos Drone Dynamics LLC. All rights reserved.</p>
+                <p>NDAA-Compliant Drone Training and Testing Facility</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleNav() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const nav = document.getElementById('nav');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
