@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Aetos Drone Dynamics | NDAA-Compliant Drone Training Facility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <style>
+        /* About Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(26, 43, 43, 0.9)), url('src/image/about-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            color: var(--light);
+        }
+        
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+        
+        .about-hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .mission-section {
+            padding: 5rem 0;
+            background: var(--surface-light);
+        }
+        
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .mission-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .mission-content h2 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .mission-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .values-section {
+            padding: 5rem 0;
+            background: var(--surface);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background: rgba(184, 134, 11, 0.05);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-card h3 {
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+        
+        .team-section {
+            padding: 5rem 0;
+            background: var(--surface-light);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background: var(--surface);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .team-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .team-info {
+            padding: 2rem;
+        }
+        
+        .team-info h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-info p.position {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .team-info p.bio {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--light);
+        }
+        
+        .history-section {
+            padding: 5rem 0;
+            background: var(--surface);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 2rem;
+            background: rgba(184, 134, 11, 0.05);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content .date {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        @media (max-width: 768px) {
+            .mission-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-info">
+        <div class="container">
+            <div class="info-container">
+                <div class="info-left">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                        </svg>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                        </svg>
+                        <span>Austin, TX</span>
+                    </div>
+                </div>
+                <div class="info-right">
+                    <span>FAA Part 107 Certified Training Center</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22,16V4A2,2 0 0,0 20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H20A2,2 0 0,0 22,16M11.14,9.94L8.5,11.5L11.14,13.06L13.78,11.5L11.14,9.94M6.5,10.5L9.14,8.94L6.5,7.38L3.86,8.94L6.5,10.5M15.78,8.94L18.42,10.5L15.78,12.06L13.14,10.5L15.78,8.94Z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">Aetos</div>
+                    <div class="logo-sub">Drone Dynamics</div>
+                </div>
+            </a>
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="training.html">Training Programs</a></li>
+                    <li><a href="testing.html">Testing Services</a></li>
+                    <li><a href="cert.html">Certification</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn">Schedule Training</a>
+            </nav>
+
+            <button class="mobile-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>Pioneering NDAA-Compliant Drone Solutions</h1>
+            <p>Since 2018, Aetos Drone Dynamics has been at the forefront of secure, innovative unmanned systems training and testing.</p>
+            <div class="hero-buttons">
+                <a href="#mission" class="hero-btn hero-btn-primary">Our Mission</a>
+                <a href="#team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission-section">
+        <div class="container">
+            <div class="mission-container">
+                <div class="mission-image">
+                    <img src="src/image/mission-image.jpg" alt="Aetos Drone Dynamics Mission">
+                </div>
+                <div class="mission-content">
+                    <h2>Our Mission</h2>
+                    <p>Aetos Drone Dynamics exists to accelerate the safe, effective deployment of unmanned systems across defense, public safety, and commercial sectors through comprehensive NDAA-compliant training and testing solutions.</p>
+                    <p>Founded by former military UAV operators, we bridge the gap between emerging drone technology and operational readiness. Our Austin-based facility combines cutting-edge simulation technology with real-world training environments to create the most comprehensive drone education ecosystem in the United States.</p>
+                    <p>We are committed to maintaining the highest standards of security, compliance, and operational excellence in all our programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2>Our Core Values</h2>
+            <p class="subtitle">The principles that guide everything we do</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security First</h3>
+                    <p>NDAA compliance and data security are foundational to all our operations and training programs.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Operational Excellence</h3>
+                    <p>We maintain the highest standards in curriculum development and training delivery.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Continuous improvement through technology integration and feedback-driven development.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Partnership</h3>
+                    <p>Collaborating with manufacturers, agencies, and operators to advance the industry.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>Transparent operations and ethical business practices in all engagements.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Safety</h3>
+                    <p>Uncompromising commitment to safe operations and regulatory compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2>Leadership Team</h2>
+            <p class="subtitle">The experienced professionals guiding Aetos Drone Dynamics</p>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <div class="team-image" style="background-image: url('src/image/team1.jpg');"></div>
+                    <div class="team-info">
+                        <h3>Michael Thorne</h3>
+                        <p class="position">CEO & Founder</p>
+                        <p class="bio">Former U.S. Army UAV Squadron Commander with 12 years of operational experience. Founded Aetos to address the critical need for secure drone training infrastructure.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <div class="team-image" style="background-image: url('src/image/team2.jpg');"></div>
+                    <div class="team-info">
+                        <h3>Sarah Chen</h3>
+                        <p class="position">Chief Training Officer</p>
+                        <p class="bio">Former FAA Aviation Safety Inspector and Part 107 test developer. Leads curriculum development and certification programs.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <div class="team-image" style="background-image: url('src/image/team3.jpg');"></div>
+                    <div class="team-info">
+                        <h3>David Rodriguez</h3>
+                        <p class="position">Director of Operations</p>
+                        <p class="bio">Former Austin Police Department Drone Unit Supervisor. Oversees all training operations and facility management.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company History -->
+    <section class="history-section">
+        <div class="container">
+            <h2>Our History</h2>
+            <p class="subtitle">Key milestones in our journey</p>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Company Founded</h3>
+                        <span class="date">June 2018</span>
+                        <p>Founded by Michael Thorne to address the growing need for secure drone training solutions in defense applications.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>First Facility Opened</h3>
+                        <span class="date">March 2019</span>
+                        <p>Established our Austin headquarters with indoor simulation labs and outdoor testing range.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>DoD Contract Award</h3>
+                        <span class="date">November 2020</span>
+                        <p>Secured first major defense contract for specialized UAV operator training.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>FAA Certification</h3>
+                        <span class="date">April 2021</span>
+                        <p>Approved as official FAA Part 107 testing center for commercial drone certification.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Facility Expansion</h3>
+                        <span class="date">September 2022</span>
+                        <p>Doubled training capacity with new urban environment simulation area.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>NDAA Compliance Certification</h3>
+                        <span class="date">January 2023</span>
+                        <p>Completed full NDAA compliance audit for all training programs and facilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" style="background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(26, 43, 43, 0.9)), url('src/image/about-cta.jpg'); background-size: cover; padding: 5rem 0; text-align: center; color: white;">
+        <div class="container">
+            <h2>Ready to Experience the Aetos Difference?</h2>
+            <p style="max-width: 700px; margin: 1rem auto 2rem; font-size: 1.2rem;">Join the leading organizations that trust us for their drone training and testing needs.</p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="hero-btn hero-btn-primary">Contact Us</a>
+                <a href="training.html" class="hero-btn hero-btn-secondary">View Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Aetos Drone Dynamics LLC</div>
+            <div class="footer-links">
+                <a href="training.html">Training</a>
+                <a href="testing.html">Testing</a>
+                <a href="cert.html">Certification</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Aetos Drone Dynamics LLC. All rights reserved.</p>
+                <p>NDAA-Compliant Drone Training and Testing Facility</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleNav() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const nav = document.getElementById('nav');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
