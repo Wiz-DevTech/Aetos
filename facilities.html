@@ -72,15 +72,89 @@
         </div>
     </header>
 
-    <!-- Facilities Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <h1>NDAA-Compliant Training Facilities</h1>
-            <p>Purpose-built environments designed to accelerate drone operator proficiency across defense, public safety, and commercial applications</p>
-            <a href="#tour" class="btn btn-large">Schedule Virtual Tour</a>
-        </div>
-    </section>
+<!-- Facilities Hero Section -->
+<section class="facilities-hero">
+    <div class="container">
+        <h1>NDAA-Compliant Training Facilities</h1>
+        <p>Purpose-built environments designed to accelerate drone operator proficiency across defense, public safety, and commercial applications</p>
+        <a href="#tour" class="btn btn-large">Schedule Virtual Tour</a>
+    </div>
+</section>
+
+<style>
+    .facilities-hero {
+        background: url('src/image/FacilitySite.jpg') no-repeat center center;
+        background-size: cover;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        color: #F5F5DC; /* Original light color */
+        text-align: center;
+    }
+
+    .facilities-hero .container {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        width: 100%;
+    }
+
+    .facilities-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        line-height: 1.2;
+        font-weight: 700;
+        color: #F5F5DC; /* Original light color */
+    }
+
+    .facilities-hero p {
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        max-width: 800px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.6;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        color: #F5F5DC; /* Original light color */
+    }
+
+    .btn-large {
+        padding: 1rem 3rem;
+        font-size: 1.2rem;
+        background-color: #B8860B; /* Original gold accent */
+        color: #1a1a1a; /* Original dark text */
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn-large:hover {
+        background-color: #d4a017; /* Slightly lighter gold */
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4);
+    }
+
+    @media (max-width: 768px) {
+        .facilities-hero {
+            min-height: 90vh;
+            padding: 0 1rem;
+        }
+        
+        .facilities-hero .container {
+            padding: 3rem 1rem;
+        }
+        
+        .btn-large {
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+        }
+    }
+</style>
 
     <!-- Facility Highlights Section -->
     <section class="facility-highlights">
