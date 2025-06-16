@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aetos Drone Dynamics | Training Programs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <style>
+        /* Training Program Page Specific Styles */
+        .training-hero {
+            background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(26, 43, 43, 0.9)), url('src/image/training-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            color: var(--light);
+        }
+        
+        .training-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+        
+        .training-hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .program-categories {
+            padding: 5rem 0;
+            background: var(--surface-light);
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .category-tab {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .category-tab.active, .category-tab:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .program-card {
+            background: var(--surface);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .program-content {
+            padding: 2rem;
+        }
+        
+        .program-content h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .program-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .program-details {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(184, 134, 11, 0.2);
+        }
+        
+        .detail-item {
+            display: flex;
+            margin-bottom: 0.8rem;
+        }
+        
+        .detail-item i {
+            color: var(--accent);
+            margin-right: 1rem;
+            width: 20px;
+        }
+        
+        .program-cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .certification-badge {
+            display: inline-block;
+            background: rgba(184, 134, 11, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .training-features {
+            padding: 5rem 0;
+            background: var(--surface);
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: rgba(184, 134, 11, 0.05);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(184, 134, 11, 0.1);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+        
+        .training-testimonials {
+            padding: 5rem 0;
+            background: var(--surface-light);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .testimonial {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 0 1rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 1rem;
+        }
+        
+        .author-info h4 {
+            color: var(--light);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .training-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .training-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-info">
+        <div class="container">
+            <div class="info-container">
+                <div class="info-left">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                        </svg>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                        </svg>
+                        <span>Austin, TX</span>
+                    </div>
+                </div>
+                <div class="info-right">
+                    <span>FAA Part 107 Certified Training Center</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22,16V4A2,2 0 0,0 20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H20A2,2 0 0,0 22,16M11.14,9.94L8.5,11.5L11.14,13.06L13.78,11.5L11.14,9.94M6.5,10.5L9.14,8.94L6.5,7.38L3.86,8.94L6.5,10.5M15.78,8.94L18.42,10.5L15.78,12.06L13.14,10.5L15.78,8.94Z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">Aetos</div>
+                    <div class="logo-sub">Drone Dynamics</div>
+                </div>
+            </a>
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="training.html" class="active">Training Programs</a></li>
+                    <li><a href="testing.html">Testing Services</a></li>
+                    <li><a href="cert.html">Certification</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn">Schedule Training</a>
+            </nav>
+
+            <button class="mobile-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Training Hero Section -->
+    <section class="training-hero">
+        <div class="container">
+            <h1>Advanced Drone Training Programs</h1>
+            <p>Develop operational excellence through our comprehensive NDAA-compliant training curriculum designed for defense, public safety, and commercial applications.</p>
+            <div class="hero-buttons">
+                <a href="#programs" class="hero-btn hero-btn-primary">View Programs</a>
+                <a href="#contact" class="hero-btn hero-btn-secondary">Contact Our Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Categories -->
+    <section id="programs" class="program-categories">
+        <div class="container">
+            <h2>Our Training Programs</h2>
+            <p class="subtitle">Select a category to explore our specialized training offerings</p>
+            
+            <div class="category-tabs">
+                <div class="category-tab active" data-category="all">All Programs</div>
+                <div class="category-tab" data-category="military">Military/DoD</div>
+                <div class="category-tab" data-category="public-safety">Public Safety</div>
+                <div class="category-tab" data-category="commercial">Commercial</div>
+                <div class="category-tab" data-category="certification">Certification</div>
+            </div>
+            
+            <div class="program-grid">
+                <!-- Program 1 -->
+                <div class="program-card" data-categories="military certification">
+                    <div class="program-image" style="background-image: url('src/image/military-training.jpg');"></div>
+                    <div class="program-content">
+                        <h3>Military Drone Operations</h3>
+                        <p>Comprehensive training for defense applications including reconnaissance, surveillance, and tactical deployment.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>2-4 Week Program</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Max 12 Students</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>DoD Certification</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-cta">
+                            <span class="price">$3,500 - $6,000</span>
+                            <a href="#" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="program-card" data-categories="public-safety certification">
+                    <div class="program-image" style="background-image: url('src/image/public-safety-training.jpg');"></div>
+                    <div class="program-content">
+                        <h3>Public Safety Drone Operations</h3>
+                        <p>Specialized training for law enforcement, fire departments, and emergency response teams.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>1-2 Week Program</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Max 8 Students</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>FAA Part 107 Included</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-cta">
+                            <span class="price">$2,500 - $4,500</span>
+                            <a href="#" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="program-card" data-categories="commercial certification">
+                    <div class="program-image" style="background-image: url('src/image/commercial-training.jpg');"></div>
+                    <div class="program-content">
+                        <h3>Commercial Drone Pilot Certification</h3>
+                        <p>Complete training for FAA Part 107 certification with industry-specific applications.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>5-Day Intensive</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Max 10 Students</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>FAA Exam Voucher</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-cta">
+                            <span class="price">$1,750</span>
+                            <a href="#" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program 4 -->
+                <div class="program-card" data-categories="military">
+                    <div class="program-image" style="background-image: url('src/image/advanced-simulator.jpg');"></div>
+                    <div class="program-content">
+                        <h3>Advanced VR Simulator Training</h3>
+                        <p>Cutting-edge virtual reality training for complex operational scenarios.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>40 Hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Individual or Group</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Simulation Certification</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-cta">
+                            <span class="price">$500 - $2,000</span>
+                            <a href="#" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program 5 -->
+                <div class="program-card" data-categories="public-safety">
+                    <div class="program-image" style="background-image: url('src/image/night-ops.jpg');"></div>
+                    <div class="program-content">
+                        <h3>Night Operations Training</h3>
+                        <p>Specialized curriculum for nighttime search and rescue, surveillance, and emergency response.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3-Day Program</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Max 6 Students</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Night Ops Endorsement</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-cta">
+                            <span class="price">$1,800</span>
+                            <a href="#" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Program 6 -->
+                <div class="program-card" data-categories="commercial">
+                    <div class="program-image" style="background-image: url('src/image/inspection-training.jpg');"></div>
+                    <div class="program-content">
+                        <h3>Industrial Inspection Training</h3>
+                        <p>Specialized program for infrastructure, energy, and industrial inspection applications.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>1 Week Program</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Max 8 Students</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Industry Certification</span>
+                            </div>
+                        </div>
+                        
+                        <div class="program-cta">
+                            <span class="price">$2,200</span>
+                            <a href="#" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Features -->
+    <section class="training-features">
+        <div class="container">
+            <h2>Why Choose Aetos Training?</h2>
+            <p class="subtitle">Our training programs set the standard for drone operational excellence</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>NDAA-Compliant</h3>
+                    <p>All training meets strict national security requirements for defense applications.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-vr-cardboard"></i>
+                    <h3>Advanced Simulators</h3>
+                    <p>Cutting-edge VR training environments with realistic scenarios.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Performance Analytics</h3>
+                    <p>Comprehensive trainee evaluation and progress tracking.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Industry Certifications</h3>
+                    <p>Recognized credentials that validate operational competence.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from experienced operators with real-world mission experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Diverse Training Environments</h3>
+                    <p>Urban, rural, and specialized obstacle courses for comprehensive training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="training-testimonials">
+        <div class="container">
+            <h2>What Our Students Say</h2>
+            <p class="subtitle">Hear from professionals who've trained with Aetos</p>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The military drone operations course at Aetos was the most comprehensive training I've received. The instructors' real-world experience made all the difference in preparing our unit for deployment."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('src/image/testimonial1.jpg');"></div>
+                        <div class="author-info">
+                            <h4>Major Daniel Carter</h4>
+                            <p>U.S. Army, 5th Battalion</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"As a police department drone coordinator, the public safety training gave our team exactly what we needed to implement an effective UAV program. The night operations training was particularly valuable."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('src/image/testimonial2.jpg');"></div>
+                        <div class="author-info">
+                            <h4>Sergeant Maria Gonzalez</h4>
+                            <p>Austin Police Department</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"The commercial pilot certification program helped me pass my FAA Part 107 exam on the first try. The hands-on training with industrial inspection scenarios directly prepared me for my current job."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('src/image/testimonial3.jpg');"></div>
+                        <div class="author-info">
+                            <h4>James Wilson</h4>
+                            <p>Energy Infrastructure Inspector</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" style="background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(26, 43, 43, 0.9)), url('src/image/training-cta.jpg'); background-size: cover; padding: 5rem 0; text-align: center; color: white;">
+        <div class="container">
+            <h2>Ready to Elevate Your Drone Operations?</h2>
+            <p style="max-width: 700px; margin: 1rem auto 2rem; font-size: 1.2rem;">Contact our training coordinators to discuss custom programs for your team or organization.</p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="hero-btn hero-btn-primary">Contact Us</a>
+                <a href="tel:5551234567" class="hero-btn hero-btn-secondary">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Aetos Drone Dynamics LLC</div>
+            <div class="footer-links">
+                <a href="training.html">Training</a>
+                <a href="testing.html">Testing</a>
+                <a href="cert.html">Certification</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Aetos Drone Dynamics LLC. All rights reserved.</p>
+                <p>NDAA-Compliant Drone Training and Testing Facility</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleNav() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        // Program category filtering
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const programCards = document.querySelectorAll('.program-card');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Update active tab
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                
+                // Filter programs
+                programCards.forEach(card => {
+                    if (category === 'all' || card.dataset.categories.includes(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Initialize testimonial slider (would need actual slider library for full functionality)
+        // This is just a placeholder - you'd typically use something like Slick, Swiper, etc.
+        console.log('Testimonial slider would be initialized here with a proper library');
+    </script>
+</body>
+</html>
