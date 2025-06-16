@@ -1,10 +1,14 @@
-/* ========================================
-   PITCH DECK STYLES - ALIGNED WITH MAIN THEME
-   ======================================== */
+:root {
+    --primary: #2F4F4F;
+    --accent: #B8860B;
+    --light: #F5F5DC;
+    --dark: #1a1a1a;
+    --surface: rgba(47, 79, 79, 0.95);
+    --surface-light: rgba(245, 245, 220, 0.05);
+    --accent-light: rgba(184, 134, 11, 0.1);
+    --text-secondary: #c8c8c8;
+}
 
-/* -------------------------------
-   BASE STYLES & GLOBAL SETTINGS
-   ------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -13,443 +17,445 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, var(--primary) 0%, #0f1419 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, #1a2b2b 100%);
     color: var(--light);
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    height: 100vh;
 }
 
-/* -------------------------------
-   SLIDESHOW CONTAINER
-   ------------------------------- */
 .slideshow-container {
     position: relative;
     width: 100%;
-    max-width: 1200px;
     height: 100vh;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    background-color: rgba(47, 79, 79, 0.9);
+    background: var(--surface);
 }
 
-/* -------------------------------
-   SLIDE STYLES
-   ------------------------------- */
 .slide {
     display: none;
-    padding: 40px;
+    padding: 4rem 3rem;
     height: 100%;
     width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: rgba(47, 79, 79, 0.95);
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    transition: opacity 0.6s ease;
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(26, 43, 43, 0.98) 100%);
 }
 
 .slide.active {
-    display: flex;
+    display: block;
     opacity: 1;
 }
 
-.slide::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23F5F5DC" stroke-width="0.1" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    z-index: -1;
+.slide-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
 }
 
-/* -------------------------------
-   TYPOGRAPHY
-   ------------------------------- */
+/* Typography */
 .slide h1 {
-    font-size: 3.8rem;
-    font-weight: 800;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--light);
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color:  beige;
-    text-shadow: 0 0 35px rgba(184, 134, 11, 0.4);
+    letter-spacing: -0.02em;
 }
 
 .slide h2 {
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
-    color: var(--accent);
-    text-shadow: 0 0 25px rgba(184, 134, 11, 0.3);
+    font-size: 2.5rem;
     font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    letter-spacing: -0.01em;
 }
 
 .slide h3 {
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-    color: var(--light);
+    font-size: 1.5rem;
     font-weight: 600;
+    color: var(--light);
+    margin-bottom: 1rem;
 }
 
-.slide p, 
-.slide li {
-    font-size: 1.2rem;
-    line-height: 1.8;
+.slide p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
     margin-bottom: 1rem;
-    max-width: 900px;
-    color: #e0e0e0;
 }
 
 .tagline {
-    font-size: 1.8rem;
-    font-style: italic;
-    color: #cccccc;
-    margin-bottom: 2.5rem;
-    letter-spacing: 0.05em;
-}
-
-.highlight {
+    font-size: 1.3rem;
     color: var(--accent);
-    font-weight: bold;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
 }
 
-/* -------------------------------
-   LISTS
-   ------------------------------- */
-.slide ul {
-    list-style: none;
-    padding-left: 0;
-    text-align: left;
-    max-width: 700px;
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.slide ul li {
-    margin-bottom: 0.8rem;
-    position: relative;
-    padding-left: 1.5em;
+/* Layout Components */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.slide ul li::before {
-    content: '➤';
-    color: var(--accent);
-    position: absolute;
-    left: 0;
-    font-size: 1em;
-    top: 0;
-}
-
-/* -------------------------------
-   STATS GRID COMPONENT
-   ------------------------------- */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
-    margin: 2.5rem 0;
-    width: 100%;
-    max-width: 1100px;
+    gap: 2rem;
+    margin: 2rem 0;
 }
 
 .stat-card {
-    background: rgba(184, 134, 11, 0.08);
+    background: var(--accent-light);
     border: 1px solid rgba(184, 134, 11, 0.2);
-    border-radius: 8px;
-    padding: 2.5rem;
+    border-radius: 12px;
+    padding: 2rem;
     text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .stat-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(184, 134, 11, 0.15);
+    transform: translateY(-4px);
 }
 
 .stat-number {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
     color: var(--accent);
     display: block;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 15px rgba(184, 134, 11, 0.5);
 }
 
-.stat-card h3 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.8rem;
-    color: var(--accent);
+.stat-label {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
 }
 
-.stat-card p {
+/* Problem Statement */
+.problem-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.problem-point {
+    padding: 1.5rem;
+    background: rgba(255, 68, 68, 0.1);
+    border-left: 4px solid #ff4444;
+    border-radius: 8px;
+}
+
+.problem-point h4 {
+    color: #ff6b6b;
+    margin-bottom: 0.5rem;
     font-size: 1.1rem;
-    margin-bottom: 0;
-    color: #c0c0c0;
 }
 
-/* -------------------------------
-   REVENUE CHART COMPONENT
-   ------------------------------- */
-.revenue-chart {
+/* Solution Grid */
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.solution-item {
+    background: var(--accent-light);
+    border: 1px solid rgba(184, 134, 11, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.solution-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Market Opportunity */
+.market-size {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.market-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.market-segments {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.segment {
+    padding: 1.5rem;
+    background: var(--surface-light);
+    border: 1px solid rgba(245, 245, 220, 0.1);
+    border-radius: 8px;
+}
+
+.segment-title {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Competitive Advantage Table */
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface-light);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(245, 245, 220, 0.1);
+}
+
+.comparison-table th {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.comparison-table td {
+    color: var(--text-secondary);
+}
+
+.comparison-table tr:first-child td {
+    font-weight: 600;
+    color: var(--light);
+}
+
+.check { color: var(--accent); font-size: 1.2rem; }
+.cross { color: #ff4444; font-size: 1.2rem; }
+
+/* Business Model */
+.revenue-streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.revenue-stream {
+    background: var(--accent-light);
+    border: 1px solid rgba(184, 134, 11, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.stream-title {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.stream-value {
+    color: var(--light);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Financial Projections */
+.financial-chart {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    width: 100%;
-    max-width: 700px;
-    height: 250px;
-    margin: 3rem 0;
-    padding-bottom: 40px;
-    position: relative;
+    height: 200px;
+    margin: 2rem 0;
+    padding: 0 2rem;
 }
 
 .revenue-bar {
     width: 80px;
-    background: linear-gradient(to top, var(--accent), var(--primary));
-    border-radius: 8px 8px 0 0;
+    background: linear-gradient(to top, var(--accent), #d4a817);
+    border-radius: 4px 4px 0 0;
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 1.1rem;
-    position: relative;
-    box-shadow: 0 -5px 15px rgba(184, 134, 11, 0.3);
-    transition: height 0.5s ease-out;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding-bottom: 8px;
 }
 
 .revenue-bar::before {
     content: attr(data-value);
     position: absolute;
-    top: -30px;
-    font-size: 1rem;
-    color: var(--accent);
-}
-
-.revenue-bar::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: -30px;
-    font-size: 1rem;
-    color: #e0e0e0;
-}
-
-/* -------------------------------
-   COMPETITION TABLE COMPONENT
-   ------------------------------- */
-.competition-table {
-    width: 100%;
-    max-width: 900px;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 2.5rem 0;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.competition-table th,
-.competition-table td {
-    border: 1px solid rgba(184, 134, 11, 0.2);
-    padding: 1.2rem 1.5rem;
-    text-align: center;
-    font-size: 1.1rem;
-}
-
-.competition-table th {
-    background: rgba(184, 134, 11, 0.2);
+    top: -25px;
     color: var(--accent);
     font-weight: 600;
 }
 
-.competition-table td {
-    background: rgba(47, 79, 79, 0.7);
-    color: #e0e0e0;
+.revenue-bar::after {
+    content: attr(data-year);
+    position: absolute;
+    bottom: -25px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
-.competition-table tr:nth-child(even) td {
-    background: rgba(47, 79, 79, 0.85);
+/* Team */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
 }
 
-.checkmark {
+.team-member {
+    background: var(--surface-light);
+    border: 1px solid rgba(245, 245, 220, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.team-title {
     color: var(--accent);
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
-.cross {
-    color: #ff4444;
-    font-size: 1.6rem;
-    font-weight: bold;
-}
-
-/* -------------------------------
-   ASK SECTION COMPONENT
-   ------------------------------- */
-.ask-section {
-    background: rgba(184, 134, 11, 0.12);
+/* Investment Ask */
+.ask-container {
+    background: linear-gradient(135deg, var(--accent-light), rgba(184, 134, 11, 0.05));
     border: 2px solid var(--accent);
     border-radius: 12px;
     padding: 3rem;
-    margin: 2.5rem 0;
-    max-width: 650px;
-    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.2);
-}
-
-.ask-section h3 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-}
-
-.ask-section ul {
     text-align: center;
-    width: 100%;
-    margin-top: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
 }
 
-.ask-section ul li {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: #f5e8c0;
-    text-shadow: 0 0 10px rgba(245, 232, 192, 0.2);
-    padding-left: 0;
-}
-
-.ask-section ul li::before {
-    content: none;
-}
-
-/* -------------------------------
-   TEAM GRID COMPONENT
-   ------------------------------- */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 2.5rem 0;
-    width: 100%;
-    max-width: 1000px;
-}
-
-.team-card {
-    background: rgba(184, 134, 11, 0.1);
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    border: 1px solid rgba(184, 134, 11, 0.2);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.team-card:hover {
-    transform: scale(1.03);
-}
-
-.team-card h3 {
+.ask-amount {
+    font-size: 3.5rem;
+    font-weight: 700;
     color: var(--accent);
-    margin-top: 0;
-    margin-bottom: 0.8rem;
-    font-size: 1.6rem;
+    margin-bottom: 1rem;
 }
 
-.team-card p {
-    font-size: 1.1rem;
-    color: #c0c0c0;
-    margin-bottom: 0;
+.use-of-funds {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
 }
 
-/* -------------------------------
-   DRONE ANIMATION
-   ------------------------------- */
-.drone-animation {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    font-size: 4rem;
-    opacity: 0.3;
-    animation: float 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 15px rgba(184, 134, 11, 0.5));
+.fund-item {
+    text-align: center;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotateY(0deg); }
-    50% { transform: translateY(-15px) rotateY(15deg); }
+.fund-amount {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
 }
 
-/* -------------------------------
-   NAVIGATION CONTROLS
-   ------------------------------- */
+.fund-purpose {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* Navigation */
 .navigation {
     position: fixed;
-    bottom: 30px;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 1.2rem;
+    gap: 1rem;
     z-index: 1000;
 }
 
 .nav-btn {
-    padding: 14px 28px;
-    background: rgba(184, 134, 11, 0.25);
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-light);
     border: 1px solid var(--accent);
     color: var(--accent);
+    border-radius: 6px;
     cursor: pointer;
-    border-radius: 30px;
     transition: all 0.3s ease;
-    font-size: 1.1rem;
-    font-weight: 600;
-    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.2);
+    font-weight: 500;
 }
 
 .nav-btn:hover {
     background: var(--accent);
     color: var(--dark);
-    transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(184, 134, 11, 0.4);
 }
 
-/* -------------------------------
-   SLIDE COUNTER
-   ------------------------------- */
+/* Slide Counter */
 .slide-counter {
     position: fixed;
-    top: 30px;
-    right: 30px;
-    background: rgba(184, 134, 11, 0.25);
-    padding: 12px 22px;
-    border-radius: 25px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--light);
+    top: 2rem;
+    right: 2rem;
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--accent);
     z-index: 1000;
-    border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
-/* -------------------------------
-   RESPONSIVE ADJUSTMENTS
-   ------------------------------- */
+/* Logo placeholder */
+.logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2.2rem; }
-    h3 { font-size: 1.6rem; }
-    p, li { font-size: 1rem; }
-    .tagline { font-size: 1.3rem; }
-    .stat-number { font-size: 2.5rem; }
-    .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .revenue-chart { flex-direction: column; height: auto; align-items: center; }
-    .revenue-bar { width: 120px; margin-bottom: 40px; }
-    .revenue-bar::after { bottom: -20px; }
-    .competition-table th, .competition-table td { padding: 0.8rem 1rem; font-size: 0.9rem; }
-    .nav-btn { padding: 10px 20px; font-size: 0.9rem; }
-    .slide-counter { top: 15px; right: 15px; padding: 8px 15px; font-size: 0.9rem; }
-    .ask-section { padding: 2rem; }
-    .ask-section ul li { font-size: 1.1rem; }
-    .drone-animation { font-size: 3rem; top: 2%; right: 2%; }
-    .team-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .slide { padding: 2rem 1.5rem; }
+    .slide h1 { font-size: 2.5rem; }
+    .slide h2 { font-size: 2rem; }
+    .two-column { grid-template-columns: 1fr; gap: 2rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .market-segments { grid-template-columns: 1fr; }
+    .revenue-streams { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+    .use-of-funds { grid-template-columns: 1fr; }
+    .ask-amount { font-size: 2.5rem; }
 }

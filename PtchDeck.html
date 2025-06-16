@@ -5,466 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aetos Drone Dynamics - Investor Pitch</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2F4F4F;
-            --accent: #B8860B;
-            --light: #F5F5DC;
-            --dark: #1a1a1a;
-            --surface: rgba(47, 79, 79, 0.95);
-            --surface-light: rgba(245, 245, 220, 0.05);
-            --accent-light: rgba(184, 134, 11, 0.1);
-            --text-secondary: #c8c8c8;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--primary) 0%, #1a2b2b 100%);
-            color: var(--light);
-            overflow: hidden;
-            height: 100vh;
-        }
-
-        .slideshow-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            background: var(--surface);
-        }
-
-        .slide {
-            display: none;
-            padding: 4rem 3rem;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            background: linear-gradient(135deg, var(--surface) 0%, rgba(26, 43, 43, 0.98) 100%);
-        }
-
-        .slide.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .slide-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        /* Typography */
-        .slide h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--light);
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .slide h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            letter-spacing: -0.01em;
-        }
-
-        .slide h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 1rem;
-        }
-
-        .slide p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .tagline {
-            font-size: 1.3rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 2rem;
-            letter-spacing: 0.02em;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            line-height: 1.5;
-            max-width: 800px;
-        }
-
-        /* Layout Components */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .stat-card {
-            background: var(--accent-light);
-            border: 1px solid rgba(184, 134, 11, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        /* Problem Statement */
-        .problem-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .problem-point {
-            padding: 1.5rem;
-            background: rgba(255, 68, 68, 0.1);
-            border-left: 4px solid #ff4444;
-            border-radius: 8px;
-        }
-
-        .problem-point h4 {
-            color: #ff6b6b;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Solution Grid */
-        .solution-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .solution-item {
-            background: var(--accent-light);
-            border: 1px solid rgba(184, 134, 11, 0.3);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .solution-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* Market Opportunity */
-        .market-size {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .market-number {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .market-segments {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .segment {
-            padding: 1.5rem;
-            background: var(--surface-light);
-            border: 1px solid rgba(245, 245, 220, 0.1);
-            border-radius: 8px;
-        }
-
-        .segment-title {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Competitive Advantage Table */
-        .comparison-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 2rem 0;
-            border-radius: 8px;
-            overflow: hidden;
-            background: var(--surface-light);
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(245, 245, 220, 0.1);
-        }
-
-        .comparison-table th {
-            background: var(--accent-light);
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .comparison-table td {
-            color: var(--text-secondary);
-        }
-
-        .comparison-table tr:first-child td {
-            font-weight: 600;
-            color: var(--light);
-        }
-
-        .check { color: var(--accent); font-size: 1.2rem; }
-        .cross { color: #ff4444; font-size: 1.2rem; }
-
-        /* Business Model */
-        .revenue-streams {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .revenue-stream {
-            background: var(--accent-light);
-            border: 1px solid rgba(184, 134, 11, 0.2);
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
-
-        .stream-title {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .stream-value {
-            color: var(--light);
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        /* Financial Projections */
-        .financial-chart {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            height: 200px;
-            margin: 2rem 0;
-            padding: 0 2rem;
-        }
-
-        .revenue-bar {
-            width: 80px;
-            background: linear-gradient(to top, var(--accent), #d4a817);
-            border-radius: 4px 4px 0 0;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding-bottom: 8px;
-        }
-
-        .revenue-bar::before {
-            content: attr(data-value);
-            position: absolute;
-            top: -25px;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .revenue-bar::after {
-            content: attr(data-year);
-            position: absolute;
-            bottom: -25px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Team */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .team-member {
-            background: var(--surface-light);
-            border: 1px solid rgba(245, 245, 220, 0.1);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .team-title {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* Investment Ask */
-        .ask-container {
-            background: linear-gradient(135deg, var(--accent-light), rgba(184, 134, 11, 0.05));
-            border: 2px solid var(--accent);
-            border-radius: 12px;
-            padding: 3rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .ask-amount {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .use-of-funds {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .fund-item {
-            text-align: center;
-        }
-
-        .fund-amount {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--accent);
-            display: block;
-        }
-
-        .fund-purpose {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-
-        /* Navigation */
-        .navigation {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
-            z-index: 1000;
-        }
-
-        .nav-btn {
-            padding: 0.75rem 1.5rem;
-            background: var(--accent-light);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-btn:hover {
-            background: var(--accent);
-            color: var(--dark);
-        }
-
-        /* Slide Counter */
-        .slide-counter {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            background: var(--accent-light);
-            border: 1px solid var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--accent);
-            z-index: 1000;
-        }
-
-        /* Logo placeholder */
-        .logo {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .slide { padding: 2rem 1.5rem; }
-            .slide h1 { font-size: 2.5rem; }
-            .slide h2 { font-size: 2rem; }
-            .two-column { grid-template-columns: 1fr; gap: 2rem; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .solution-grid { grid-template-columns: 1fr; }
-            .market-segments { grid-template-columns: 1fr; }
-            .revenue-streams { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: 1fr; }
-            .use-of-funds { grid-template-columns: 1fr; }
-            .ask-amount { font-size: 2.5rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="src/css/pitch.css"> 
 </head>
 <body>
     <div class="logo">AETOS</div>
@@ -475,16 +16,17 @@
         </div>
 
         <!-- Slide 1: Title -->
-        <div class="slide active">
-            <div class="slide-content">
-                <div style="text-align: center;">
+         <div class="slide active">
+            <div class="logo">Aetos Drone Dynamics</div>
+                <div class="slide-content">
+                    <div style="text-align: center;">
                     <h1>Aetos Drone Dynamics</h1>
                     <p class="tagline">Securing America's Skies Through Elite Training</p>
                     <p class="subtitle">The first comprehensive NDAA-compliant drone training and certification facility, addressing critical gaps in U.S. defense and public safety readiness.</p>
                 </div>
             </div>
-        </div>
-
+</div>
+        
         <!-- Slide 2: Problem -->
         <div class="slide">
             <div class="slide-content">
@@ -521,29 +63,41 @@
         </div>
 
         <!-- Slide 3: Solution -->
-        <div class="slide">
-            <div class="slide-content">
-                <h2>Comprehensive Training Excellence</h2>
-                <div class="solution-grid">
-                    <div class="solution-item">
-                        <span class="solution-icon">🎯</span>
-                        <h3>Advanced Simulation</h3>
-                        <p>VR environments with AI-powered threat scenarios and digital twin technology</p>
-                    </div>
-                    <div class="solution-item">
-                        <span class="solution-icon">🚁</span>
-                        <h3>Live Training</h3>
-                        <p>Real-world exercises on mock urban, forest, and battlefield courses</p>
-                    </div>
-                    <div class="solution-item">
-                        <span class="solution-icon">✅</span>
-                        <h3>Certification</h3>
-                        <p>FAA Part 107 and DoD-approved programs ensuring full compliance</p>
-                    </div>
+<div class="slide">
+    <div class="slide-content">
+        <h2>Comprehensive Training Excellence</h2>
+        <div class="solution-grid">
+            <div class="solution-item">
+                <div class="image-container">
+                    <img src="src/image/advsim.jpg" alt="Advanced VR Simulation">
                 </div>
-                <p style="text-align: center; margin-top: 2rem; font-size: 1.2rem;">The only facility combining simulation, live training, and certification under one NDAA-compliant roof.</p>
+                <div class="solution-text">
+                    <h3>Advanced Simulation</h3>
+                    <p>VR environments with AI-powered threat scenarios and digital twin technology</p>
+                </div>
+            </div>
+            <div class="solution-item">
+                <div class="image-container">
+                    <img src="src/image/livetraining.jpg" alt="Live Field Training">
+                </div>
+                <div class="solution-text">
+                    <h3>Live Training</h3>
+                    <p>Real-world exercises on mock urban, forest, and battlefield courses</p>
+                </div>
+            </div>
+            <div class="solution-item">
+                <div class="image-container">
+                    <img src="src/image/certification.jpg" alt="Operator Certification">
+                </div>
+                <div class="solution-text">
+                    <h3>Certification</h3>
+                    <p>FAA Part 107 and DoD-approved programs ensuring full compliance</p>
+                </div>
             </div>
         </div>
+        <p class="training-tagline">The only facility combining simulation, live training, and certification under one NDAA-compliant roof.</p>
+    </div>
+</div>
 
         <!-- Slide 4: Market Opportunity -->
         <div class="slide">
