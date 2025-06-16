@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Testing Services | Aetos Drone Dynamics | NDAA-Compliant Facility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <style>
+        /* Testing Page Specific Styles */
+        .testing-hero {
+            background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(26, 43, 43, 0.9)), url('src/image/testing-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            color: var(--light);
+        }
+        
+        .testing-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+        
+        .testing-hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        
+        .testing-intro {
+            padding: 5rem 0;
+            background: var(--surface-light);
+        }
+        
+        .testing-intro .container {
+            max-width: 1000px;
+            text-align: center;
+        }
+        
+        .testing-intro h2 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .testing-intro p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .testing-services {
+            padding: 5rem 0;
+            background: var(--surface);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: rgba(184, 134, 11, 0.05);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+            border-radius: 10px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(184, 134, 11, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            margin-top: 1.5rem;
+        }
+        
+        .service-features li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-features li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+        
+        .testing-methodology {
+            padding: 5rem 0;
+            background: var(--surface-light);
+        }
+        
+        .methodology-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .methodology-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .methodology-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .methodology-steps {
+            margin-top: 2rem;
+        }
+        
+        .step {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--accent);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            background: var(--accent);
+            color: var(--dark);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .step h4 {
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .step p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .testing-facilities {
+            padding: 5rem 0;
+            background: var(--surface);
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .facility-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .facility-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .facility-info {
+            padding: 1.5rem;
+            background: var(--surface-light);
+        }
+        
+        .facility-info h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .facility-info p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .testing-cta {
+            padding: 5rem 0;
+            background: linear-gradient(rgba(47, 79, 79, 0.9), rgba(26, 43, 43, 0.9)), url('src/image/testing-cta.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .testing-cta h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .testing-cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .testing-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .testing-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .methodology-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .methodology-steps {
+                margin-top: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-info">
+        <div class="container">
+            <div class="info-container">
+                <div class="info-left">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                        </svg>
+                        <span>(302) 206-9066</span>
+                    </div>
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                        </svg>
+                        <span>Dover, DE</span>
+                    </div>
+                </div>
+                <div class="info-right">
+                    <span>FAA Part 107 Certified Testing Facility</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22,16V4A2,2 0 0,0 20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H20A2,2 0 0,0 22,16M11.14,9.94L8.5,11.5L11.14,13.06L13.78,11.5L11.14,9.94M6.5,10.5L9.14,8.94L6.5,7.38L3.86,8.94L6.5,10.5M15.78,8.94L18.42,10.5L15.78,12.06L13.14,10.5L15.78,8.94Z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">Aetos</div>
+                    <div class="logo-sub">Drone Dynamics</div>
+                </div>
+            </a>
+
+            <nav id="nav">
+                <ul>
+                    <li><a href="training.html">Training Programs</a></li>
+                    <li><a href="testing.html" class="active">Testing Services</a></li>
+                    <li><a href="cert.html">Certification</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn">Schedule Testing</a>
+            </nav>
+
+            <button class="mobile-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Testing Hero Section -->
+    <section class="testing-hero">
+        <div class="container">
+            <h1>Advanced Drone Testing Services</h1>
+            <p>Comprehensive NDAA-compliant evaluation and validation for defense, commercial, and public safety UAV systems</p>
+            <div class="hero-buttons">
+                <a href="#services" class="hero-btn hero-btn-primary">Our Services</a>
+                <a href="#contact" class="hero-btn hero-btn-secondary">Request Testing</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing Intro -->
+    <section class="testing-intro">
+        <div class="container">
+            <h2>Precision Testing for Mission-Critical Performance</h2>
+            <p>Aetos Drone Dynamics provides rigorous, standards-compliant testing services to validate UAV system performance, safety, and compliance. Our Austin facility offers manufacturers, government agencies, and commercial operators an independent, NDAA-compliant testing environment with comprehensive data collection and analysis.</p>
+            <p>From prototype validation to operational readiness testing, our team of certified engineers and former military UAV operators brings unmatched expertise to every evaluation.</p>
+        </div>
+    </section>
+
+    <!-- Testing Services -->
+    <section id="services" class="testing-services">
+        <div class="container">
+            <h2>Our Testing Services</h2>
+            <p class="subtitle">Comprehensive evaluation solutions for all UAV system requirements</p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Component Testing</h3>
+                    <p>Detailed evaluation of individual UAV subsystems including flight controllers, sensors, and communication modules.</p>
+                    <ul class="service-features">
+                        <li>EMI/EMC testing</li>
+                        <li>Environmental stress screening</li>
+                        <li>Component lifecycle analysis</li>
+                        <li>NDAA-compliance verification</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drone-alt"></i>
+                    </div>
+                    <h3>Flight Performance Testing</h3>
+                    <p>Comprehensive evaluation of UAV flight characteristics and operational capabilities.</p>
+                    <ul class="service-features">
+                        <li>Stability and maneuverability testing</li>
+                        <li>Payload capacity evaluation</li>
+                        <li>Wind and weather resistance</li>
+                        <li>Battery and power system analysis</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security Testing</h3>
+                    <p>Rigorous evaluation of UAV system cybersecurity and data protection.</p>
+                    <ul class="service-features">
+                        <li>RF vulnerability assessment</li>
+                        <li>Data encryption testing</li>
+                        <li>GPS spoofing resistance</li>
+                        <li>NDAA-compliance certification</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>Environmental Testing</h3>
+                    <p>Validation of UAV performance under various environmental conditions.</p>
+                    <ul class="service-features">
+                        <li>Temperature and humidity extremes</li>
+                        <li>Dust and water ingress testing</li>
+                        <li>Vibration and impact resistance</li>
+                        <li>Altitude simulation</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Regulatory Compliance Testing</h3>
+                    <p>Verification of UAV systems against applicable regulations and standards.</p>
+                    <ul class="service-features">
+                        <li>FAA Part 107 compliance</li>
+                        <li>NDAA Section 848 validation</li>
+                        <li>Industry-specific standards</li>
+                        <li>International regulations</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Operational Readiness Testing</h3>
+                    <p>End-to-end evaluation of UAV systems in mission scenarios.</p>
+                    <ul class="service-features">
+                        <li>Mission-specific scenario testing</li>
+                        <li>Human factors evaluation</li>
+                        <li>Failure mode analysis</li>
+                        <li>Operational limits determination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing Methodology -->
+    <section class="testing-methodology">
+        <div class="container">
+            <div class="methodology-container">
+                <div class="methodology-image">
+                    <img src="src/image/testing-method.jpg" alt="Aetos Testing Methodology">
+                </div>
+                <div class="methodology-content">
+                    <h2>Our Testing Methodology</h2>
+                    <p>Aetos employs a rigorous, four-phase testing protocol to ensure comprehensive evaluation of all UAV system components and capabilities.</p>
+                    
+                    <div class="methodology-steps">
+                        <!-- Step 1 -->
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h4>Requirements Analysis</h4>
+                            <p>Detailed review of system specifications and operational requirements to develop customized test plans.</p>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h4>Controlled Environment Testing</h4>
+                            <p>Laboratory evaluation of components and subsystems under precise, repeatable conditions.</p>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h4>Field Testing</h4>
+                            <p>Real-world operational evaluation in our specialized test environments.</p>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h4>Data Analysis & Reporting</h4>
+                            <p>Comprehensive performance analysis with detailed technical reports and recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing Facilities -->
+    <section class="testing-facilities">
+        <div class="container">
+            <h2>Testing Facilities</h2>
+            <p class="subtitle">Purpose-built environments for comprehensive UAV evaluation</p>
+            
+            <div class="facilities-grid">
+                <!-- Facility 1 -->
+                <div class="facility-card">
+                    <div class="facility-image" style="background-image: url('src/image/lab-testing.jpg');"></div>
+                    <div class="facility-info">
+                        <h3>Electronics Testing Lab</h3>
+                        <p>Climate-controlled environment for component-level testing with precision measurement equipment.</p>
+                    </div>
+                </div>
+                
+                <!-- Facility 2 -->
+                <div class="facility-card">
+                    <div class="facility-image" style="background-image: url('src/image/indoor-range.jpg');"></div>
+                    <div class="facility-info">
+                        <h3>Indoor Flight Range</h3>
+                        <p>10,000 sq ft netted environment for controlled flight testing with motion capture system.</p>
+                    </div>
+                </div>
+                
+                <!-- Facility 3 -->
+                <div class="facility-card">
+                    <div class="facility-image" style="background-image: url('src/image/urban-range.jpg');"></div>
+                    <div class="facility-info">
+                        <h3>Urban Test Environment</h3>
+                        <p>Simulated cityscape with buildings, obstacles, and RF interference sources.</p>
+                    </div>
+                </div>
+                
+                <!-- Facility 4 -->
+                <div class="facility-card">
+                    <div class="facility-image" style="background-image: url('src/image/open-range.jpg');"></div>
+                    <div class="facility-info">
+                        <h3>Open Air Range</h3>
+                        <p>200-acre FAA-approved flight test area with variable terrain and obstacle courses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing CTA -->
+    <section class="testing-cta">
+        <div class="container">
+            <h2>Ready to Validate Your UAV Systems?</h2>
+            <p>Our testing team is ready to evaluate your drone systems against the highest industry and regulatory standards. Contact us to discuss your testing requirements.</p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="hero-btn hero-btn-primary">Contact Our Team</a>
+                <a href="tel:3022069066" class="hero-btn hero-btn-secondary">Call (302) 206-9066</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Aetos Drone Dynamics LLC</div>
+            <div class="footer-links">
+                <a href="training.html">Training</a>
+                <a href="testing.html">Testing</a>
+                <a href="cert.html">Certification</a>
+                <a href="facilities.html">Facilities</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Aetos Drone Dynamics LLC. All rights reserved.</p>
+                <p>NDAA-Compliant Drone Training and Testing Facility</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleNav() {
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const nav = document.getElementById('nav');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
